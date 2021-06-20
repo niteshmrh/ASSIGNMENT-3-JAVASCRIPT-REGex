@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE>ASSIGNMENT_JS_2</TITLE>
+		<style>
+			table{
+				margin: 0 auto;
+			}
+			table tr{
+				height: 30px;
+			}
+			table tr td{
+				padding: 10px;
+			}
+		</style>
+		<SCRIPT>
+			function calculateBill()
+			{
+				unitCall = parseInt(document.getElementById("no_of_calls").value);
+				unitSms = parseInt(document.getElementById("no_of_sms").value);
+				charhesForCalls = 0.00;
+				charhesForSms = 0.00;
+				if(unitCall >=0 && unitCall <=50)
+				{
+					charhesForCalls = unitCall * 0.50;
+				}
+				else if(unitCall >= 51 && unitCall <=150)
+				{
+					unitCall = unitCall - 50;
+					charhesForCalls = (50 * 0.50) + (unitCall * 0.70);
+				}
+				else if(unitCall >= 151 && unitCall <=300)
+				{
+					unitCall = unitCall - 150;
+					charhesForCalls = (50 * 0.50) + (100 * 0.70) + (unitCall * 0.85);
+				}
+				else
+				{
+					unitCall = unitCall-300;
+					charhesForCalls = (50 * 0.50) + (100 * 0.70) + (100 * 0.85) + (unitCall * 0.95);
+				}
+				
+				// for sms
+				
+				if(unitSms >=0 && unitSms <=50)
+				{
+					charhesForSms = unitSms * 0;
+				}
+				else if(unitSms >= 51 && unitSms <=200)
+				{
+					unitSms = unitSms - 50;
+					charhesForSms = (50 * 0) + (unitSms * 0.25);
+				}
+				else if(unitSms >= 201 && unitSms <=400)
+				{
+					unitSms = unitSms - 200;
+					charhesForSms = (50 * 0) + (150 * 0.25) + (unitSms * 0.40);
+				}
+				else
+				{
+					unitSms = unitSms - 400;
+					charhesForSms = (50 * 0) + (100 * 0.25) + (100 * 0.40) + (unitSms * 0.45);
+				}
+				alert("Charges for call: " + charhesForCalls +"Charges for SMS: "+ charhesForSms + "Total Charges: "+(charhesForCalls+charhesForSms));
+			}
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<FIELDSET>
+			<legend align='center'><strong>TELEPHONE BILL</strong></legend>
+			<form onsubmit="calculateBill();">
+				<table>
+					<tr>
+						<td><label for='no_of_calls'>Enter number of calls</label></td>
+						<td><input type='text' name='no_of_calls' id='no_of_calls' /></td>
+					</tr>
+					<tr>
+						<td><label for='no_of_sms'>Enter SMS</label></td>
+						<td><input type='text' name='no_of_sms' id='no_of_sms' /></td>
+					</tr>
+					<tr>
+						<td><input type='reset' name='reset' value='Reset' /></td>
+						<td><input type='submit' name='submit' value='Submit' /></td>
+					</tr>
+				</table>
+			</form>
+		</FIELDSET>
+	</BODY>
+</HTML>

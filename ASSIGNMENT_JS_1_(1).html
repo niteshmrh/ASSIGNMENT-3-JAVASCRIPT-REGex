@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE>ASSIGNMENT_JS_1</TITLE>
+	</HEAD>
+	<BODY>
+		<SCRIPT>
+			function changeText()
+			{
+				firstline=document.getElementById("formaltext").value;
+				secondline=document.getElementById("replacetext").value;
+				thirdline=document.getElementById("replacewith").value;
+				now = firstline.replaceAll(secondline,thirdline);
+				document.getElementById("formaltext").value = now;
+				alert(now);
+			}
+		</SCRIPT>
+		<table align="center">
+			<tr>
+				<td><label for='formaltext'>Enter text :</label></td>
+				<td><input type='text' name='formaltext' id='formaltext'  size="45"/></td>
+			</tr>
+			<tr>
+				<td><label for='replacetext'>Enter word to replace :</label></td>
+				<td><input type='text' name='replacetext' id='replacetext' /></td>
+			</tr>
+			<tr>
+				<td><label for='replacewith'>Enter word to replaced with :</label></td>
+				<td><input type='text' name='replacewith' id='replacewith' /></td>
+			</tr>
+		</table>
+		<Br>
+		<div align="center">
+			<button onclick='changeText();'>Click to Change</button>		
+		</div>
+	</BODY>
+</HTML>
